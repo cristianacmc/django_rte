@@ -1,5 +1,5 @@
-
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
 <html>
     <head>
@@ -14,7 +14,29 @@
         <div class="page-header">
         	<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <h1><a href="/">Django Girls Blog</a></h1>
+        </div> 
+
+        <div class=row"">
+	        <div class="col-xs-3 pull-right">
+	        		<p class='lead'>Welcome<p>
+	        		
+	        		<form method='POST' action=''>{% csrf_token %}
+	        		{{ form|crispy }}
+	        		<input class='btn btn-primary' type='submit' value='Sign up' />
+	        			
+	        		</form>
+	        </div>
         </div>
+       
+	       <!-- <ul class="nav navbar-nav navbar-right">
+	        {% if request.user.is_authenticated %}
+	        	<li><a href="">Logout</a></li>
+	        {% else %}
+	        	<li><a href="">Login</a></li>
+	        	<li><a href="">Register</a></li>
+	        {% endif %}
+	        </ul> -->
+	       
 
         <div class="content container">
 		    <div class="row">
